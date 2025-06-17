@@ -1,29 +1,29 @@
-# 🍽️ Restaurant Management System - DIP Implementation (C++)
+#  Restaurant Management System - DIP Implementation (C++)
 
 Demonstrasi implementasi **Dependency Inversion Principle (DIP)** menggunakan C++ dengan studi kasus sistem manajemen restoran.
 
-## 📋 Deskripsi Tugas
+##  Deskripsi Tugas
 
 Implementasi SOLID Principles khususnya **Dependency Inversion Principle** dengan mendemonstrasikan:
 
-1. **❌ Problem**: Kode yang melanggar DIP (tight coupling)
-2. **✅ Solution 1**: Dependency Injection
-3. **✅ Solution 2**: Factory Pattern  
-4. **✅ Solution 3**: Strategy Pattern
-5. **🧪 Testing**: Mock objects untuk unit testing
+1. ** Problem**: Kode yang melanggar DIP (tight coupling)
+2. ** Solution 1**: Dependency Injection
+3. ** Solution 2**: Factory Pattern  
+4. ** Solution 3**: Strategy Pattern
+5. ** Testing**: Mock objects untuk unit testing
 
-## 📺 Video Demonstrasi
+##  Video Demonstrasi
 
 **Link Video**: [Masukkan link YouTube/Google Drive Anda di sini]
 
 Video mencakup:
-- ✅ Penjelasan konsep DIP dengan analogi nyata
-- ✅ Live coding dari masalah ke solusi
-- ✅ Demonstrasi 3 teknik implementasi
-- ✅ Comparison before vs after
-- ✅ Benefits dan real-world applications
+-  Penjelasan konsep DIP dengan analogi nyata
+-  Live coding dari masalah ke solusi
+-  Demonstrasi 3 teknik implementasi
+-  Comparison before vs after
+-  Benefits dan real-world applications
 
-## 🏗️ Struktur Project
+##  Struktur Project
 
 ```
 restaurant-management-cpp/
@@ -36,7 +36,7 @@ restaurant-management-cpp/
     └── benefits_analysis.md
 ```
 
-## 🚀 Cara Menjalankan
+##  Cara Menjalankan
 
 ### Prerequisites
 - C++ compiler (g++, clang++)
@@ -67,19 +67,19 @@ make release   # Optimized build
 make help      # Show help
 ```
 
-## 📊 Before vs After Comparison
+##  Before vs After Comparison
 
-### ❌ BEFORE (Violation)
+###  BEFORE (Violation)
 ```cpp
 class BadRestaurantService {
 private:
-    MySQLDatabase_Bad* database;          // ❌ Direct dependency
-    EmailNotification_Bad* notification;  // ❌ Direct dependency
+    MySQLDatabase_Bad* database;          //  Direct dependency
+    EmailNotification_Bad* notification;  //  Direct dependency
 
 public:
     BadRestaurantService() {
-        database = new MySQLDatabase_Bad();      // ❌ Hard coded
-        notification = new EmailNotification_Bad(); // ❌ Hard coded
+        database = new MySQLDatabase_Bad();      //  Hard coded
+        notification = new EmailNotification_Bad(); //  Hard coded
     }
 }
 ```
@@ -90,12 +90,12 @@ public:
 - Sulit ganti implementation
 - Maintenance nightmare
 
-### ✅ AFTER (DIP Compliant)
+###  AFTER (DIP Compliant)
 ```cpp
 class GoodRestaurantService {
 private:
-    shared_ptr<DatabaseService> database;      // ✅ Depend on abstraction
-    shared_ptr<NotificationService> notification; // ✅ Depend on abstraction
+    shared_ptr<DatabaseService> database;      //  Depend on abstraction
+    shared_ptr<NotificationService> notification; //  Depend on abstraction
 
 public:
     // Constructor Injection
@@ -111,7 +111,7 @@ public:
 - Flexible implementation switching
 - Maintainable dan extensible
 
-## 🔧 Teknik yang Diimplementasikan
+##  Teknik yang Diimplementasikan
 
 ### 1. Dependency Injection
 ```cpp
@@ -153,26 +153,26 @@ processor.setStrategy(make_shared<CreditCardStrategy>());
 processor.setStrategy(make_shared<DigitalWalletStrategy>());
 ```
 
-## 💻 Contoh Output Program
+##  Contoh Output Program
 
 ```
-🍽️ RESTAURANT MANAGEMENT SYSTEM - DIP DEMO
+ RESTAURANT MANAGEMENT SYSTEM - DIP DEMO
 ============================================================
 
-❌ PROBLEM: DIP Violation Example
+ PROBLEM: DIP Violation Example
 ----------------------------------------
-❌ BadRestaurantService: Created with tight coupling
-💾 MySQL: Saving to MySQL database: Order{id=1, description='Nasi Gudeg Special', amount=$35.000000}
-📧 Email: Sending email - Order 1 processed!
-❌ Order processed with TIGHT COUPLING
+ BadRestaurantService: Created with tight coupling
+ MySQL: Saving to MySQL database: Order{id=1, description='Nasi Gudeg Special', amount=$35.000000}
+ Email: Sending email - Order 1 processed!
+ Order processed with TIGHT COUPLING
    Problem: Sulit ganti database atau notification!
 
-✅ SOLUTION 1: Dependency Injection
+ SOLUTION 1: Dependency Injection
 ----------------------------------------
-✅ GoodRestaurantService: Created with MySQL + Email
-💾 MySQL: Saving to MySQL database: Order{id=2, description='Sate Ayam Madura', amount=$28.500000}
-📧 Email: Order 2 processed successfully!
-✅ Order processed with LOOSE COUPLING (DIP compliant)
+ GoodRestaurantService: Created with MySQL + Email
+ MySQL: Saving to MySQL database: Order{id=2, description='Sate Ayam Madura', amount=$28.500000}
+ Email: Order 2 processed successfully!
+ Order processed with LOOSE COUPLING (DIP compliant)
 
-🔄 Easy to switch implementations:
-✅ GoodRestaurantService: Created with PostgreSQL +
+ Easy to switch implementations:
+ GoodRestaurantService: Created with PostgreSQL +
