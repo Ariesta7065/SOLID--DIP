@@ -14,7 +14,7 @@ Implementasi SOLID Principles khususnya **Dependency Inversion Principle** denga
 
 ##  Video Demonstrasi
 
-**Link Video**: [Masukkan link YouTube/Google Drive Anda di sini]
+**Link Video**: [(https://youtu.be/gmqgi7nXoH0?si=cWzkJjPJbq_D3Fwl)]
 
 Video mencakup:
 -  Penjelasan konsep DIP dengan analogi nyata
